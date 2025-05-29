@@ -4,98 +4,52 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 100%; /* PRD: colorPalette.background #FFFFFF */
+    --foreground: 220 10% 12%; /* PRD: colorPalette.primaryText #1C1E21 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* Assuming cards are white, same as background/sidebar */
+    --card-foreground: 220 10% 12%; /* Assuming primaryText on cards */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%; /* Assuming popovers are white */
+    --popover-foreground: 220 10% 12%; /* Assuming primaryText on popovers */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 89% 52%; /* PRD: colorPalette.accentBlue #1877F2 */
+    --primary-foreground: 0 0% 100%; /* Assuming white text on primary color */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 17% 95%; /* PRD: colorPalette.surface #F0F2F5 */
+    --secondary-foreground: 211 8% 41%; /* PRD: colorPalette.secondaryText #606770 */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 225 17% 91%; /* PRD: colorPalette.accentGray #E4E6EB */
+    --muted-foreground: 211 8% 41%; /* PRD: colorPalette.secondaryText #606770 on muted backgrounds */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 217 89% 52%; /* PRD: colorPalette.accentBlue #1877F2 */
+    --accent-foreground: 0 0% 100%; /* Assuming white text on accent color */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84.2% 60.2%; /* Kept from original as PRD does not specify a destructive color */
+    --destructive-foreground: 210 40% 98%; /* Kept from original */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 223 10% 86%; /* PRD: colorPalette.border #D8DADF */
+    --input: 223 10% 86%; /* Assuming input borders use the general border color */
+    --ring: 217 89% 52%; /* PRD: colorPalette.accentBlue #1877F2 for focus rings */
 
-    --radius: 0.5rem;
+    --radius: 0.375rem; /* PRD: effects.borderRadius.default "rounded-md" which is 0.375rem */
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --font-sans: "Roboto", sans-serif; /* PRD: typography.primaryFont */
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  /* Dark mode properties removed as not specified in PRD designSystem */
+  /* Sidebar-specific color variables removed as PRD sidebar color is covered by --background or general palette */
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border; /* Uses --border variable via Tailwind config */
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground; /* Uses --background and --foreground via Tailwind config */
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
